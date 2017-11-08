@@ -56,7 +56,6 @@
             div1 = document.createElement('div')
             main.appendChild(div1)
             var row = keys[index]
-            console.log(row)
             var index2 = 0
             while(index2 < row.length){
                 kbd = document.createElement('kbd')
@@ -67,6 +66,18 @@
             }
             index++
         }
+
+    document.onkeypress = function(k){
+        var key = k.key
+        console.log(key)
+        var website = hash[key]
+        console.log(website)
+        location.href = 'http://'+website
+        
+
+    }
+
+    
         </script>
 </body>
 </html>
