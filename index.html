@@ -9,8 +9,8 @@
 </head>
 <body>
     <header></header>
-    <main id="main">
-
+    <main>
+        <div class="wrapper" id="main"></div>
 
 
     
@@ -18,9 +18,9 @@
     </main>
     <script>
             var keys = {
-                0: ['q','w','e','r','t','y','u','i','o','p'],
-                1: ['a','s','f','g','h','j','k','l'],
-                2: ['z','x','c','v','b','n','m'],
+                '0': ['q','w','e','r','t','y','u','i','o','p'],
+                '1': ['a','s','d','f','g','h','j','k','l'],
+                '2': ['z','x','c','v','b','n','m'],
                 'length': 3
             }
             var hash = {
@@ -55,10 +55,12 @@
         while(index < keys['length']){
             div1 = document.createElement('div')
             main.appendChild(div1)
+            var row = keys[index]
+            console.log(row)
             var index2 = 0
-            while(index2 < 10){
+            while(index2 < row.length){
                 kbd = document.createElement('kbd')
-                kbd.textContent = ('hhh')
+                kbd.textContent = (row[index2])
                 div1.appendChild(kbd)
                 index2++
                 
