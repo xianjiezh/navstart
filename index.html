@@ -54,16 +54,27 @@
         var index = 0
         while(index < keys['length']){
             div1 = document.createElement('div')
-            main.appendChild(div1)
+                main.appendChild(div1)
             var row = keys[index]
             var index2 = 0
             while(index2 < row.length){
                 kbd = document.createElement('kbd')
-                kbd.textContent = (row[index2])
-                div1.appendChild(kbd)
-                index2++
-                
-            }
+                    kbd.textContent = (row[index2])
+                    div1.appendChild(kbd)
+                    btn = document.createElement('button')
+                        btn.textContent = '编辑'
+                        btn.id = row[index2]
+                        kbd.appendChild(btn)
+                        btn.onclick = function(c){
+                            console.log(c.target.id)
+                            var key = c.target.id
+                            var x = window.prompt('给我一个网址，网址前部分不要加 "http://"或"https://"')
+                            hash[key] = x
+                            localStorage.setItem('usermessage',JSON.stringify(hash))
+                            console.log(hash)
+                        } 
+                        index2++               
+                }
             index++
         }
 
@@ -72,10 +83,10 @@
         console.log(key)
         var website = hash[key]
         console.log(website)
-        location.href = 'http://'+website
+        window.open('http://'+website,'_blank')
         
-
     }
+    
 
     
         </script>

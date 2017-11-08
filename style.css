@@ -4,24 +4,42 @@
 }
 main .wrapper{
     margin-top: 200px;
-    max-width:560px;
+    max-width:795px;
     margin-left: auto;
     margin-right: auto;
 }
 main .wrapper>div{
-    margin: 22px auto;
+    margin: 48px auto;
 }
 main .wrapper>div:nth-child(2){
-    margin-left: 1em;
+    margin-left: 1.5em;
 }
 main .wrapper>div:nth-child(3){
-    margin-left: 3em;
+    margin-left: 4em;
 }
 main .wrapper>div>kbd{
-    margin: 5px;
+    margin: 16px 8px;
     font-size: 18px;
     border: 1px solid #eee;
     text-transform: uppercase;
-    padding:7px 12px;
-    box-shadow: 0 0 1px black;
+    padding:18px 24px 25px 24px;
+    box-shadow: 0 2px 5px rgb(177, 161, 161);
+    background-color: #dedede;
+    position: relative;
+}
+main .wrapper>div>kbd:hover{
+    background-color: #eee;
+    box-shadow: 0 1px 5px #222;
+    transition: all 0.3s;
+}
+main .wrapper>div>kbd>button{
+    position: absolute;
+    bottom: 0;
+    right:0;
+    font-size: 12px;
+    display: none;
+}
+main .wrapper>div>kbd:hover>button{
+    display: inline-block;
+    
 }
