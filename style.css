@@ -27,6 +27,7 @@ main .wrapper>div:nth-child(3){
 main .wrapper>div>kbd{
     margin: 16px 8px;
     font-size: 18px;
+    font-weight: bold;
     border: 1px solid #eee;
     border-radius: 3px;
     text-transform: uppercase;
