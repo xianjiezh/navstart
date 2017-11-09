@@ -32,6 +32,12 @@ var hash = {
     n : 'nn.com',
     m : 'mm.com'
 }
+    hashInLocalStorage = JSON.parse(localStorage.getItem('usermessage') || 'null')
+        if(hashInLocalStorage){
+            hash = hashInLocalStorage
+        }
+
+
 var index = 0
 while(index < keys['length']){
 div1 = document.createElement('div')
@@ -45,6 +51,7 @@ while(index2 < row.length){
         btn = document.createElement('button')
             btn.textContent = '编辑'
             btn.id = row[index2]
+            kbd.id = row[index2]+'kbd'
             kbd.appendChild(btn)
             btn.onclick = function(c){
                 console.log(c.target.id)
@@ -54,10 +61,12 @@ while(index2 < row.length){
                 localStorage.setItem('usermessage',JSON.stringify(hash))
                 console.log(hash)
             } 
-            index2++               
+            index2++
     }
 index++
 }
+              
+
 
 document.onkeypress = function(k){
 var key = k.key
