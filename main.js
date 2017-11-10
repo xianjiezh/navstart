@@ -1,3 +1,4 @@
+alert('目前只支持中文和数字搜索，纯英文搜索请使用输入法间接输入')
 var keys = {
     '0': ['q','w','e','r','t','y','u','i','o','p'],
     '1': ['a','s','d','f','g','h','j','k','l'],
@@ -65,8 +66,8 @@ while(index2 < row.length){
     }
 index++
 }
-              
-document.onkeypress = function(k){
+var keydown = document || (!wd)             
+keydown.onkeypress = function(k){
     var key = k.key
     var website = hash[key]
     if(!website){
