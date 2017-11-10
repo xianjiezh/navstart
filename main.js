@@ -76,6 +76,9 @@ document.onkeypress = function(k){
     }
 }
 
-submit.onclick = function() {
+submit1.onclick = function() {
     window.open('http://www.baidu.com//s?wd='+wd.value,'_blank')
+}
+submit2.onclick = function() {
+    window.open('http://www.google.co.uk/search?q='+wd.value,'_blank')
 }
