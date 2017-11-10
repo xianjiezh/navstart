@@ -48,6 +48,7 @@ main .wrapper>div:nth-child(3){
 main .wrapper>div>kbd{
     margin: 16px 8px;
     font-size: 18px;
+    color:#222;
     font-weight: bold;
     border: 1px solid #eee;
     border-radius: 3px;
@@ -61,6 +62,7 @@ main .wrapper>div>kbd:hover{
     background-color: #eee;
     box-shadow: 0 1px 5px #222;
     transition: all 0.3s;
+    color:black;
 }
 main .wrapper>div>kbd>button{
     position: absolute;
