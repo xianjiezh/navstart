@@ -7,8 +7,8 @@ header{
     text-align: center;
     margin-bottom: 60px;
 }
-hearer>h1{
-    display: inline-block;
+header>h1{
+    letter-spacing: 3px;
 }
 form{
     margin-top: 30px;

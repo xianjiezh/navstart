@@ -72,7 +72,7 @@ document.onkeypress = function(k){
     if(!website){
         
     }else {
-        window.open('http://'+website,'_blank')
+        window.open('http://' + website,'_blank')
     }
 }
 
