@@ -48,19 +48,20 @@ main .wrapper>div:nth-child(3){
 main .wrapper>div>kbd{
     margin: 16px 8px;
     font-size: 18px;
-    color:#222;
+    font-family: "YaHei Consolas Hybrid";
+    color:white;
     font-weight: bold;
-    border: 1px solid #eee;
+    border: 1px solid white;
     border-radius: 3px;
     text-transform: uppercase;
     padding:18px 24px 25px 24px;
-    box-shadow: 0 2px 5px rgb(177, 161, 161);
-    background-color: #dedede;
+    box-shadow: 0 0 0 1px rgb(196, 178, 178);
+    background-color: black;
     position: relative;
 }
 main .wrapper>div>kbd:hover{
     background-color: #eee;
-    box-shadow: 0 1px 5px #222;
+    box-shadow: 0 1px 5px 1px #222;
     transition: all 0.3s;
     color:black;
 }
