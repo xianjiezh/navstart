@@ -66,15 +66,16 @@ while(index2 < row.length){
 index++
 }
               
-
-
 document.onkeypress = function(k){
-var key = k.key
-console.log(key)
-var website = hash[key]
-console.log(website)
-window.open('http://'+website,'_blank')
-
+    var key = k.key
+    var website = hash[key]
+    if(!website){
+        
+    }else {
+        window.open('http://'+website,'_blank')
+    }
 }
 
-
+submit.onclick = function() {
+    window.open('http://www.baidu.com//s?wd='+wd.value,'_blank')
+}
