@@ -95,6 +95,15 @@ main .wrapper>div>kbd:hover>button{
     width: 20px;
     height: 20px;
 }
+.noimg{
+    height:4px;
+    width:4px;
+    border: 1px solid transparent;
+    border-radius: 50%;
+    position: absolute;
+    left: 2px;
+    bottom: 2px;
+}
 #fkbd,#jkbd{
     
 }

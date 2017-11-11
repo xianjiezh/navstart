@@ -12,26 +12,21 @@ var hash = {
     r : 'renren.com',
     t : 'tencent.com',
     y : 'cctv.com',
-    u : 'uc.com',
+    u : 'baidu.com',
     i : 'iqiyi.com',
-    o : 'opera.com',
-    p : 'pptv.com',
+    o : 'baidu.com',
+    p : 'baidu.com',
     a : 'alibaba.com',
     s : 'sohu.com',
-    d : 'dd.com',
-    f : 'ff.com',
-    g : 'gg.com',
-    h : 'hh.com',
-    j : 'jj.com',
+    d : 'baidu.com',
+    f : 'baidu.com',
+    g : 'baidu.com',
+    h : 'baidu.com',
+    j : 'baidu.com',
     k : 'kfc.com',
-    l : 'll.com',
-    z : 'zz.com',
-    x : 'xx.com',
-    c : 'cc.com',
-    v : 'vv.com',
-    b : 'bb.com',
-    n : 'nn.com',
-    m : 'mm.com'
+    l : 'baidu.com',
+    z : 'zhihu.com'
+
 }
     hashInLocalStorage = JSON.parse(localStorage.getItem('usermessage') || 'null')
         if(hashInLocalStorage){
@@ -56,6 +51,9 @@ while(index2 < row.length){
                 img = document.createElement('img')
                 img.src = 'http://www.'+hash[keys[index][index2]]+'/favicon.ico'
                 img.className = 'img'
+            }else{
+                img.src = 'picture/null.png'
+                img.className = 'noimg'
             }
             kbd.id = row[index2]+'kbd'
             kbd.appendChild(btn)
