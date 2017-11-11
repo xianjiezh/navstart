@@ -11,11 +11,11 @@ var hash = {
     e : 'ele.me',
     r : 'renren.com',
     t : 'tencent.com',
-    y : 'youtube.com',
+    y : 'cctv.com',
     u : 'uc.com',
     i : 'iqiyi.com',
     o : 'opera.com',
-    p : 'phtoshop.com',
+    p : 'pptv.com',
     a : 'alibaba.com',
     s : 'sohu.com',
     d : 'dd.com',
@@ -23,7 +23,7 @@ var hash = {
     g : 'gg.com',
     h : 'hh.com',
     j : 'jj.com',
-    k : 'kk.com',
+    k : 'kfc.com',
     l : 'll.com',
     z : 'zz.com',
     x : 'xx.com',
@@ -52,8 +52,14 @@ while(index2 < row.length){
         btn = document.createElement('button')
             btn.textContent = '编辑'
             btn.id = row[index2]
+            if(hash[keys[index][index2]]){
+                img = document.createElement('img')
+                img.src = 'http://www.'+hash[keys[index][index2]]+'/favicon.ico'
+                img.className = 'img'
+            }
             kbd.id = row[index2]+'kbd'
             kbd.appendChild(btn)
+            kbd.appendChild(img)
             btn.onclick = function(c){
                 console.log(c.target.id)
                 var key = c.target.id

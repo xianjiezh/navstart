@@ -88,6 +88,13 @@ main .wrapper>div>kbd:hover>button{
     display: inline-block;
     
 }
+.img{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 20px;
+    height: 20px;
+}
 #fkbd,#jkbd{
     
 }
