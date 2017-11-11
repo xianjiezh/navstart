@@ -65,9 +65,8 @@ while(index2 < row.length){
             index2++
     }
 index++
-}
-var keydown = document || (!wd)             
-keydown.onkeypress = function(k){
+}         
+document.onkeypress = function(k){
     var key = k.key
     var website = hash[key]
     if(!website){
