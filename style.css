@@ -96,8 +96,8 @@ main .wrapper>div>kbd:hover>button{
     height: 20px;
 }
 .noimg{
-    height:4px;
-    width:4px;
+    height:3px;
+    width:3px;
     border: 1px solid transparent;
     border-radius: 50%;
     position: absolute;

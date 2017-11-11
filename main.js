@@ -52,6 +52,7 @@ while(index2 < row.length){
                 img.src = 'http://www.'+hash[keys[index][index2]]+'/favicon.ico'
                 img.className = 'img'
             }else{
+                img = document.createElement('img')
                 img.src = 'picture/null.png'
                 img.className = 'noimg'
             }
