@@ -32,38 +32,44 @@ form{
 }
 main .wrapper{
     margin-top: 50px;
-    max-width:755px;
+    max-width:855px;
     margin-left: auto;
     margin-right: auto;
 }
 main .wrapper>div{
-    margin: 48px auto;
+    margin: 4px auto;
+}
+main .wrapper>div:nth-child(1){
+    margin-left: 2em;
 }
 main .wrapper>div:nth-child(2){
-    margin-left: 1.5em;
+    margin-left: 3.5em;
 }
 main .wrapper>div:nth-child(3){
-    margin-left: 4em;
+    margin-left: 6em;
 }
 main .wrapper>div>kbd{
-    margin: 16px 8px;
+    display: inline-block;
+    margin-left: 8px;
     font-size: 18px;
-    font-family: "YaHei Consolas Hybrid";
-    color:white;
-    font-weight: bold;
+    font-family: "Heveltica";
+    color:#efefef;
     border: 1px solid white;
-    border-radius: 3px;
+    border-radius: 5px;
     text-transform: uppercase;
-    padding:18px 24px 25px 24px;
-    box-shadow: 0 0 0 1px rgb(196, 178, 178);
-    background-color: black;
+    width: 65px;
+    height: 52px;
+    padding-top: 5px;
+    padding-left: 5px;  
+    box-shadow: ;
+    background-image: linear-gradient(to bottom, #292929, black);
     position: relative;
 }
 main .wrapper>div>kbd:hover{
     background-color: #eee;
     box-shadow: 0 1px 5px 1px #222;
     transition: all 0.3s;
-    color:black;
+    color:white;
 }
 main .wrapper>div>kbd>button{
     position: absolute;
