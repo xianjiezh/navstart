@@ -40,8 +40,8 @@ main .wrapper{
     width:855px;
     margin-left: auto;
     margin-right: auto;
-    padding: 10px 0;
-    background-color: rgba(0, 0, 0,0.2)
+    padding: 15px 0;
+    background-color: rgba(255, 255, 255, 0.2)
 }
 main .wrapper>div{
     margin: 9px auto;
@@ -103,7 +103,4 @@ main .wrapper>div>kbd:hover>button{
     position: absolute;
     left: 2px;
     bottom: 2px;
-}
-#fkbd,#jkbd{
-    
 }

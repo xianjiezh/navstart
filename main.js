@@ -51,12 +51,18 @@ while(index2 < row.length){
                 img = document.createElement('img')
                 img.src = 'http://www.'+hash[keys[index][index2]]+'/favicon.ico'
                 img.className = 'img'
-            }else{
+            }else if(img.onerror){
                 img = document.createElement('img')
                 img.src = 'picture/null.png'
                 img.className = 'noimg'
             }
-            kbd.id = row[index2]+'kbd'
+            
+            img.onerror = function(err) {
+                console.log(err)
+                err.target.src = 'picture/null.png'
+                err.target.className = 'noimg'
+            }
+            kbd.className = 'kbd-'+row[index2]
             kbd.appendChild(btn)
             kbd.appendChild(img)
             btn.onclick = function(c){
