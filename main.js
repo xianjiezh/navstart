@@ -58,20 +58,26 @@ while(index2 < row.length){
             }
             
             img.onerror = function(err) {
-                console.log(err)
                 err.target.src = 'picture/null.png'
                 err.target.className = 'noimg'
             }
-            kbd.className = 'kbd-'+row[index2]
+            kbd.className = 'kbd-'+row[index2]  //目前还没有用
             kbd.appendChild(btn)
             kbd.appendChild(img)
             btn.onclick = function(c){
-                console.log(c.target.id)
+                var btn2 = c.target
+                console.log(btn2)
+                img2 = btn2.nextSibling
+                key = btn2.id
                 var key = c.target.id
                 var x = window.prompt('给我一个网址，网址前部分不要加 "http://"或"https://"')
                 hash[key] = x
+                img2.src = 'http://' + x +'/favicon.ico'
+                img2.onerror = function(err) {
+                    err.target.src = 'picture/null.png'
+                    err.target.className = 'noimg'
+                }
                 localStorage.setItem('usermessage',JSON.stringify(hash))
-                console.log(hash)
             } 
             index2++
     }
