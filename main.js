@@ -49,7 +49,7 @@ while(index2 < row.length){
             btn.id = row[index2]
             if(hash[keys[index][index2]]){
                 img = document.createElement('img')
-                img.src = 'http://www.'+hash[keys[index][index2]]+'/favicon.ico'
+                img.src = 'http://'+hash[keys[index][index2]]+'/favicon.ico'
                 img.className = 'img'
             }else{
                 img = document.createElement('img')
