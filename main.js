@@ -1,4 +1,9 @@
-alert('在搜索框直接输入纯英文会触发键盘事件')
+
+
+
+
+
+// 初始化数据
 var keys = {
     '0': ['q','w','e','r','t','y','u','i','o','p'],
     '1': ['a','s','d','f','g','h','j','k','l'],
@@ -28,31 +33,39 @@ var hash = {
     z : 'zhihu.com'
 
 }
-    hashInLocalStorage = JSON.parse(localStorage.getItem('usermessage') || 'null')
+    var hashInLocalStorage = getFromLocalStorage('userMessage')
         if(hashInLocalStorage){
             hash = hashInLocalStorage
         }
 
 
+    function getFromLocalStorage(usmsg) {
+        JSON.parse(localStorage.getItem('usmsg') || 'null')
+    }
+
+    function tag(tageName) {
+        document.createElement('tagName')
+    }
+// 生成键盘
 var index = 0
 while(index < keys['length']){
-div1 = document.createElement('div')
+div1 = tag('div')
     main.appendChild(div1)
 var row = keys[index]
 var index2 = 0
 while(index2 < row.length){
-    kbd = document.createElement('kbd')
+    kbd = tag('kbd')
         kbd.textContent = (row[index2])
         div1.appendChild(kbd)
-        btn = document.createElement('button')
+        btn = tag('button')
             btn.textContent = '编辑'
             btn.id = row[index2]
             if(hash[keys[index][index2]]){
-                img = document.createElement('img')
+                img = tag('img')
                 img.src = 'http://'+hash[keys[index][index2]]+'/favicon.ico'
                 img.className = 'img'
             }else{
-                img = document.createElement('img')
+                img = tag('img')
                 img.src = 'picture/null.png'
                 img.className = 'noimg'
             }
@@ -61,28 +74,30 @@ while(index2 < row.length){
                 err.target.src = 'picture/null.png'
                 err.target.className = 'noimg'
             }
-            kbd.className = 'kbd-'+row[index2]  //目前还没有用
+            kbd.id = 'kbd-'+row[index2]  //目前还没有用
             kbd.appendChild(btn)
             kbd.appendChild(img)
             btn.onclick = function(c){
                 var btn2 = c.target
-                console.log(btn2)
                 img2 = btn2.nextSibling
                 key = btn2.id
-                var key = c.target.id
+                var key = c.target.id    //btn2的 q w e r t 等
                 var x = window.prompt('给我一个网址，网址前部分不要加 "http://"或"https://"')
-                hash[key] = x
+                hash[key] = x                                   //变更hash
+                console.log(x)
                 img2.src = 'http://' + x +'/favicon.ico'
                 img2.onerror = function(err) {
                     err.target.src = 'picture/null.png'
                     err.target.className = 'noimg'
                 }
-                localStorage.setItem('usermessage',JSON.stringify(hash))
+                localStorage.setItem('usermMssage',JSON.stringify(hash))
             } 
             index2++
     }
 index++
-}         
+}      
+
+// 监听键盘事件
 document.onkeypress = function(k){
     var key = k.key
     var website = hash[key]
