@@ -43,17 +43,17 @@ var hash = {
         JSON.parse(localStorage.getItem('usmsg') || 'null')
     }
 
-    function tag(tageName) {
-        document.createElement('tagName')
+    function tag(tagName) {
+        return document.createElement(tagName)
     }
 // 生成键盘
-var index = 0
-while(index < keys['length']){
+
+for (var index = 0; index < keys['length']; index++){
 div1 = tag('div')
     main.appendChild(div1)
 var row = keys[index]
-var index2 = 0
-while(index2 < row.length){
+
+for (var index2 = 0;index2 < row.length; index2++){
     kbd = tag('kbd')
         kbd.textContent = (row[index2])
         div1.appendChild(kbd)
@@ -92,9 +92,9 @@ while(index2 < row.length){
                 }
                 localStorage.setItem('usermMssage',JSON.stringify(hash))
             } 
-            index2++
+            
     }
-index++
+
 }      
 
 // 监听键盘事件
