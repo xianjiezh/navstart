@@ -46,53 +46,66 @@ var hash = {
     function tag(tagName) {
         return document.createElement(tagName)
     }
-// 生成键盘
 
-for (var index = 0; index < keys['length']; index++){
-div1 = tag('div')
-    main.appendChild(div1)
-var row = keys[index]
 
-for (var index2 = 0;index2 < row.length; index2++){
-    kbd = tag('kbd')
-        kbd.textContent = (row[index2])
-        div1.appendChild(kbd)
-        btn = tag('button')
-            btn.textContent = '编辑'
-            btn.id = row[index2]
-            if(hash[keys[index][index2]]){
-                img = tag('img')
-                img.src = 'http://'+hash[keys[index][index2]]+'/favicon.ico'
-                img.className = 'img'
-            }else{
-                img = tag('img')
-                img.src = 'picture/null.png'
-                img.className = 'noimg'
-            }
-            
-            img.onerror = function(err) {
+    function creatButton(id) {
+        var btn = tag('button')
+        btn.textContent = '编辑'
+        btn.id = id
+        btn.onclick = function(c){
+            var btn2 = c.target
+            img2 = btn2.nextSibling
+            key = btn2['id']
+            var key = c.target.id    //btn2的 q w e r t 等
+            var x = window.prompt('给我一个网址，网址前部分不要加 "http://"或"https://"')
+            hash[key] = x                                   //变更hash
+            console.log(x)
+            img2.src = 'http://' + x +'/favicon.ico'
+            img2.onerror = function(err) {
                 err.target.src = 'picture/null.png'
                 err.target.className = 'noimg'
             }
+            localStorage.setItem('userMessage',JSON.stringify(hash))
+        } 
+        return btn
+    }
+
+    function creatImage(domin) {
+        if(domin){
+            img = tag('img')
+            img.src = 'http://'+hash[keys[index][index2]]+'/favicon.ico'
+            img.className = 'img'
+        }else{
+            img = tag('img')
+            img.src = 'picture/null.png'
+            img.className = 'noimg'
+        }
+        
+        img.onerror = function(err) {
+            err.target.src = 'picture/null.png'
+            err.target.className = 'noimg'
+        }
+        return img
+    }
+
+
+for (var index = 0; index < keys['length']; index++){
+div1 = tag('div')
+main.appendChild(div1)
+var row = keys[index]
+
+for (var index2 = 0;index2 < row.length; index2++){
+
+var img = creatImage(hash[keys[index][index2]]) 
+var btn = creatButton(row[index2])
+            kbd = tag('kbd')
+            kbd.textContent = (row[index2])
             kbd.id = 'kbd-'+row[index2]  //目前还没有用
+
             kbd.appendChild(btn)
             kbd.appendChild(img)
-            btn.onclick = function(c){
-                var btn2 = c.target
-                img2 = btn2.nextSibling
-                key = btn2.id
-                var key = c.target.id    //btn2的 q w e r t 等
-                var x = window.prompt('给我一个网址，网址前部分不要加 "http://"或"https://"')
-                hash[key] = x                                   //变更hash
-                console.log(x)
-                img2.src = 'http://' + x +'/favicon.ico'
-                img2.onerror = function(err) {
-                    err.target.src = 'picture/null.png'
-                    err.target.className = 'noimg'
-                }
-                localStorage.setItem('usermMssage',JSON.stringify(hash))
-            } 
-            
+            div1.appendChild(kbd)
+       
     }
 
 }      
