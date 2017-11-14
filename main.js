@@ -38,7 +38,6 @@ var hash = {
             hash = hashInLocalStorage
         }
 
-
     function getFromLocalStorage(usmsg) {
         JSON.parse(localStorage.getItem('usmsg') || 'null')
     }
@@ -46,7 +45,6 @@ var hash = {
     function tag(tagName) {
         return document.createElement(tagName)
     }
-
 
     function creatButton(id) {
         var btn = tag('button')
@@ -90,14 +88,14 @@ var hash = {
 
 
 for (var index = 0; index < keys['length']; index++){
-div1 = tag('div')
-main.appendChild(div1)
-var row = keys[index]
+    div1 = tag('div')
+    main.appendChild(div1)
+    var row = keys[index]
 
-for (var index2 = 0;index2 < row.length; index2++){
+    for (var index2 = 0;index2 < row.length; index2++){
 
-var img = creatImage(hash[keys[index][index2]]) 
-var btn = creatButton(row[index2])
+        var img = creatImage(hash[keys[index][index2]]) 
+        var btn = creatButton(row[index2])
             kbd = tag('kbd')
             kbd.textContent = (row[index2])
             kbd.id = 'kbd-'+row[index2]  //目前还没有用
