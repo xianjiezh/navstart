@@ -70,6 +70,7 @@ main .wrapper>div>kbd{
     box-shadow: 0 0 0 1px #1a1b1c,0 1px 0 2px #1f2020,0 3px 0 2px #080808;
     background-image: linear-gradient(to bottom, #292929, black);
     position: relative;
+    cursor: pointer;
 }
 main .wrapper>div>kbd:hover{
     box-shadow: 0 0 1px 1px #1a1b1c,0 1px 1px 2px #1f2020,0 3px 1px 2px #080808;

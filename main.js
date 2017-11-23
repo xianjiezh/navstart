@@ -9,9 +9,10 @@
 var hashInit = init()
 var keys = hashInit['keys']
 var hash = hashInit['hash']
-
 generatingKeyboard(keys, hash)
 
+var kbd = document.getElementsByTagName('kbd')
+console.log(kbd[1].id)  //这个肯定有用，明天一定搞出来
 wd.onblur = function () {
     listenToUser(hash)
 }
@@ -87,13 +88,14 @@ function generatingKeyboard(keys, hash) {
             var btn = creatButton(row[index2])
             kbd = tag('kbd')
             kbd.textContent = (row[index2])
-            kbd.id = 'kbd-' + row[index2]  //目前还没有用
+            kbd.id = 'kbd-' + row[index2]
             kbd.appendChild(btn)
             kbd.appendChild(img)
             div1.appendChild(kbd)
         }
 
     }
+
 }
 
 function tag(tagName) {
@@ -140,7 +142,7 @@ function creatImage(domin) {
     return img
 }
 
-function listenToUser(hash) {
+function listenToUser(hash, kbd) {
     // 监听键盘事件
     document.onkeypress = function (k) {
         var key = k.key
@@ -150,6 +152,7 @@ function listenToUser(hash) {
         } else {
             window.open('http://' + website, '_blank')
         }
+
     }
 }
 
