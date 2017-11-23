@@ -10,16 +10,22 @@ var hashInit = init()
 var keys = hashInit['keys']
 var hash = hashInit['hash']
 generatingKeyboard(keys, hash)
-
+/*
 var kbd = document.getElementsByTagName('kbd')
-console.log(kbd[1].id)  //这个肯定有用，明天一定搞出来
+console.log(kbd)
+for(var i = 0;i <25; i ++){
+    console.log(kbd[i].id)  //这个肯定有用，明天一定搞出来
+    
+}
+*/
 wd.onblur = function () {
     listenToUser(hash)
+    return null
 }
 
 
-wd.onfocuon = function (wd) {
-    wd.stopPropagation()
+wd.onfocu = function () {
+
 }
 
 /* 搜索框 */
@@ -88,10 +94,16 @@ function generatingKeyboard(keys, hash) {
             var btn = creatButton(row[index2])
             kbd = tag('kbd')
             kbd.textContent = (row[index2])
-            kbd.id = 'kbd-' + row[index2]
+            kbd.id = row[index2]
+            
             kbd.appendChild(btn)
             kbd.appendChild(img)
             div1.appendChild(kbd)
+            kbd.onclick = function (wedsite){
+                var site = hash[wedsite.target.id]
+                console.log(site)
+                window.open("http://" +site ,"_blank")
+            }  // 鼠标点击事件不能return出去，就要绑定在这里
         }
 
     }
@@ -142,7 +154,7 @@ function creatImage(domin) {
     return img
 }
 
-function listenToUser(hash, kbd) {
+function listenToUser(hash) {
     // 监听键盘事件
     document.onkeypress = function (k) {
         var key = k.key
