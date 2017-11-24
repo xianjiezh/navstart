@@ -10,23 +10,19 @@ var hashInit = init()
 var keys = hashInit['keys']
 var hash = hashInit['hash']
 generatingKeyboard(keys, hash)
-/*
-var kbd = document.getElementsByTagName('kbd')
-console.log(kbd)
-for(var i = 0;i <25; i ++){
-    console.log(kbd[i].id)  //这个肯定有用，明天一定搞出来
-    
+var wd = document.getElementById('wd')
+
+wd.addEventListener('blur', onBlur)
+wd.onfocus = function(){
+    console.log('得到焦点')
+    wd.removeEventListener("blur", onblur, true)
 }
-*/
-wd.onblur = function () {
+
+function onBlur() {
+    console.log('失去焦点')
     listenToUser(hash)
-    return null
 }
 
-
-wd.onfocu = function () {
-
-}
 
 /* 搜索框 */
 
@@ -52,7 +48,7 @@ function init() {
         w: 'weibo.com',
         e: 'ele.me',
         r: 'renren.com',
-        t: 'tencent.com',
+        t: 'taobao.com',
         y: 'cctv.com',
         u: 'baidu.com',
         i: 'iqiyi.com',
@@ -67,7 +63,13 @@ function init() {
         j: 'baidu.com',
         k: 'kfc.com',
         l: 'baidu.com',
-        z: 'zhihu.com'
+        z: 'zhihu.com',
+        x: 'x-art.com',
+        c: 'cctv.com',
+        v: 'vivo.com',
+        b: 'bilibili.com',
+        n: 'nba.com',
+        m: 'Microsoft.com'
     }
     var hashInLocalStorage = getFromLocalStorage('userMessage')
     if (hashInLocalStorage) {
@@ -95,14 +97,13 @@ function generatingKeyboard(keys, hash) {
             kbd = tag('kbd')
             kbd.textContent = (row[index2])
             kbd.id = row[index2]
-            
             kbd.appendChild(btn)
             kbd.appendChild(img)
             div1.appendChild(kbd)
-            kbd.onclick = function (wedsite){
+            kbd.onclick = function (wedsite) {
                 var site = hash[wedsite.target.id]
                 console.log(site)
-                window.open("http://" +site ,"_blank")
+                window.open("http://" + site, "_blank")
             }  // 鼠标点击事件不能return出去，就要绑定在这里
         }
 
@@ -166,6 +167,7 @@ function listenToUser(hash) {
         }
 
     }
+    return false
 }
 
 
