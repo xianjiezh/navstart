@@ -12,11 +12,12 @@ var hash = hashInit['hash']
 generatingKeyboard(keys, hash)
 
 var wd = document.getElementById('wd')
-wd.onblur = function(){
-    listenToUser(hash)    
+wd.onblur = function () {
+    listenToUser(hash)
 }
-wd.onfocus = function(){
-    listenToUser(undefined)
+wd.onfocus = function () {
+    console.log('成功执行到这里了')
+    listenToUser(null)
 }
 
 
@@ -96,6 +97,7 @@ function generatingKeyboard(keys, hash) {
             kbd.appendChild(btn)
             kbd.appendChild(img)
             div1.appendChild(kbd)
+
             kbd.onclick = function (wedsite) {
                 var site = hash[wedsite.target.id]
                 console.log(site)
@@ -156,7 +158,7 @@ function listenToUser(hash) {
     document.onkeypress = function (k) {
         var key = k.key
         var website = hash[key]
-        if (!website) {
+        if (website == false) {
 
         } else {
             window.open('//' + website, '_blank')
