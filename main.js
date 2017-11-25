@@ -10,27 +10,23 @@ var hashInit = init()
 var keys = hashInit['keys']
 var hash = hashInit['hash']
 generatingKeyboard(keys, hash)
+
 var wd = document.getElementById('wd')
-
-wd.addEventListener('blur', onBlur)
-wd.onfocus = function(){
-    console.log('得到焦点')
-    wd.removeEventListener("blur", onblur, true)
+wd.onblur = function(){
+    listenToUser(hash)    
 }
-
-function onBlur() {
-    console.log('失去焦点')
-    listenToUser(hash)
+wd.onfocus = function(){
+    listenToUser(undefined)
 }
 
 
 /* 搜索框 */
 
 submit1.onclick = function () {
-    window.open('http://www.baidu.com//s?wd=' + wd.value, '_blank')
+    window.open('//www.baidu.com//s?wd=' + wd.value, '_blank')
 }
 submit2.onclick = function () {
-    window.open('http://www.google.co.uk/search?q=' + wd.value, '_blank')
+    window.open('//www.google.co.uk/search?q=' + wd.value, '_blank')
 }
 
 
@@ -163,7 +159,7 @@ function listenToUser(hash) {
         if (!website) {
 
         } else {
-            window.open('http://' + website, '_blank')
+            window.open('//' + website, '_blank')
         }
 
     }
