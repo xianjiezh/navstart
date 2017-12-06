@@ -12,11 +12,12 @@ var hash = hashInit['hash']
 generatingKeyboard(keys, hash)
 
 var wd = document.getElementById('wd')
+listenToUser(hash)
 wd.onblur = function () {
     listenToUser(hash)
+    return false
 }
 wd.onfocus = function () {
-    console.log('成功执行到这里了')
     listenToUser(null)
 }
 
@@ -123,7 +124,7 @@ function creatButton(id) {
         key = btn2['id']
         var key = c.target.id    //btn2的 q w e r t 等
         var x = window.prompt('给我一个网址，网址前部分不要加 "http://"或"https://"')
-        hash[key] = x                                   //变更hash
+        hash[key] = x                          //变更hash
         console.log(x)
         img2.src = 'http://' + x + '/favicon.ico'
         img2.onerror = function (err) {
