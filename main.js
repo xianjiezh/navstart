@@ -12,13 +12,11 @@ var hash = hashInit['hash']
 generatingKeyboard(keys, hash)
 
 var wd = document.getElementById('wd')
-listenToUser(hash)
 wd.onblur = function () {
-    listenToUser(hash)
-    return false
+    window.addEventListener('keydown', fn)
 }
 wd.onfocus = function () {
-    listenToUser(null)
+    window.removeEventListener('keydown', fn)
 }
 
 
@@ -62,7 +60,7 @@ function init() {
         k: 'kfc.com',
         l: 'baidu.com',
         z: 'zhihu.com',
-        x: 'x-art.com',
+        x: 'xiedaimala.com',
         c: 'cctv.com',
         v: 'vivo.com',
         b: 'bilibili.com',
@@ -99,11 +97,12 @@ function generatingKeyboard(keys, hash) {
             kbd.appendChild(img)
             div1.appendChild(kbd)
 
-            kbd.onclick = function (wedsite) {
-                var site = hash[wedsite.target.id]
+            kbd.addEventListener('click', function (e) {
+                e.stopPropagation()
+                var site = hash[e.target.id]
                 console.log(site)
                 window.open("http://" + site, "_blank")
-            }  // 鼠标点击事件不能return出去，就要绑定在这里
+            })  // 鼠标点击事件不能return出去，就要绑定在这里
         }
 
     }
@@ -119,6 +118,7 @@ function creatButton(id) {
     btn.textContent = '编辑'
     btn.id = id
     btn.onclick = function (c) {
+        c.stopPropagation()
         var btn2 = c.target
         img2 = btn2.nextSibling
         key = btn2['id']
@@ -154,20 +154,20 @@ function creatImage(domin) {
     return img
 }
 
-function listenToUser(hash) {
-    // 监听键盘事件
-    document.onkeypress = function (k) {
-        var key = k.key
-        var website = hash[key]
-        if (website == false) {
 
-        } else {
-            window.open('//' + website, '_blank')
-        }
+// 监听键盘事件
+window.addEventListener('keydown', fn)
+function fn(k) {
+    var key = k.key
+    var website = hash[key]
+    if (website == false) {
 
+    } else {
+        window.open('//' + website, '_blank')
     }
-    return false
+
 }
+
 
 
 
